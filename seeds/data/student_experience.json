@@ -1,0 +1,12 @@
+[
+  {
+    "id": "c2000001-0001-4000-8000-000000000001",
+    "studentId": "c0000001-0001-4000-8000-000000000001",
+    "company": "Startup XYZ",
+    "position": "Estagiária de Desenvolvimento",
+    "startDate": "2022-06-01",
+    "endDate": null,
+    "description": "Desenvolvimento de features em React e Node.",
+    "isCurrentlyWorking": true
+  }
+]

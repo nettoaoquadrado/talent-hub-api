@@ -1,0 +1,11 @@
+[
+  {
+    "id": "c3000001-0001-4000-8000-000000000001",
+    "studentId": "c0000001-0001-4000-8000-000000000001",
+    "name": "Curso de React",
+    "issuingOrganization": "Plataforma Demo",
+    "issueDate": "2022-03-15",
+    "hasExpiration": false,
+    "credentialUrl": "https://platform.demo/cert/maria-react"
+  }
+]

@@ -1,0 +1,10 @@
+[
+  {
+    "id": "fb000001-0001-4000-8000-000000000001",
+    "jobApplicationId": "f0000002-0002-4000-8000-000000000002",
+    "status": "reviewing",
+    "feedback": "Seu currículo foi selecionado para a próxima etapa. Entraremos em contato em breve para agendar a entrevista.",
+    "createdAt": "2024-01-12T10:00:00.000Z",
+    "updatedAt": "2024-01-12T10:00:00.000Z"
+  }
+]

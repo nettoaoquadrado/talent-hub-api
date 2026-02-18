@@ -1,0 +1,1167 @@
+[
+    {
+        "id": "e0000001-0001-4000-8000-000000000001",
+        "companyId": "b0000001-0001-4000-8000-000000000001",
+        "title": "Estagiário(a) em Desenvolvimento Web",
+        "description": "Buscamos estagiário para atuar no time de produto, desenvolvendo features em React e Node.js.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando Ciência da Computação ou afins",
+            "Conhecimento em JavaScript",
+            "Disponibilidade 6h/dia"
+        ],
+        "requiredSkills": [
+            "d0000001-0001-4000-8000-000000000001",
+            "d0000017-0017-4000-8000-000000000017"
+        ],
+        "salaryMin": 1500,
+        "salaryMax": 2500,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "locationCountry": "Brasil",
+        "locationStreet": "Av. Paulista",
+        "locationNumber": "100",
+        "locationNeighborhood": "Bela Vista",
+        "locationZipCode": "01310-100",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher",
+            "education_allowance",
+            "flexible_hours"
+        ],
+        "otherBenefits": [
+            "Mentoria técnica"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000002-0002-4000-8000-000000000002",
+        "companyId": "b0000001-0001-4000-8000-000000000001",
+        "title": "Desenvolvedor(a) Júnior Backend",
+        "description": "Vaga para quem já tem experiência com Node.js e quer evoluir em APIs e banco de dados.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "Formação em TI ou conclusão em andamento",
+            "Experiência com Node.js",
+            "SQL"
+        ],
+        "requiredSkills": [
+            "d0000016-0016-4000-8000-000000000016",
+            "d0000014-0014-4000-8000-000000000014"
+        ],
+        "salaryMin": 3500,
+        "salaryMax": 5000,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "health_insurance",
+            "meal_voucher",
+            "remote_work"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000003-0003-4000-8000-000000000003",
+        "companyId": "b0000001-0001-4000-8000-000000000001",
+        "title": "Estagiário(a) QA",
+        "description": "Atuar em testes manuais e automatizados.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI",
+            "Raciocínio lógico"
+        ],
+        "requiredSkills": [
+            "d0000080-0080-4000-8000-000000000080"
+        ],
+        "salaryMin": 1200,
+        "salaryMax": 1800,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000004-0004-4000-8000-000000000004",
+        "companyId": "b0000002-0002-4000-8000-000000000002",
+        "title": "Estagiário(a) Desenvolvimento",
+        "description": "Desenvolvimento de aplicações web com React e Node.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI",
+            "JavaScript"
+        ],
+        "requiredSkills": [
+            "d0000001-0001-4000-8000-000000000001",
+            "d0000017-0017-4000-8000-000000000017"
+        ],
+        "salaryMin": 1400,
+        "salaryMax": 2200,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "education_allowance"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000005-0005-4000-8000-000000000005",
+        "companyId": "b0000002-0002-4000-8000-000000000002",
+        "title": "Dev Júnior Full Stack",
+        "description": "Atuar em projetos de ponta a ponta.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "Experiência com React ou Node",
+            "SQL"
+        ],
+        "requiredSkills": [
+            "d0000017-0017-4000-8000-000000000017",
+            "d0000016-0016-4000-8000-000000000016"
+        ],
+        "salaryMin": 4000,
+        "salaryMax": 6000,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "health_insurance",
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000006-0006-4000-8000-000000000006",
+        "companyId": "b0000002-0002-4000-8000-000000000002",
+        "title": "Trainee em TI",
+        "description": "Programa de trainee para formação em desenvolvimento.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Formação em TI",
+            "Proatividade"
+        ],
+        "requiredSkills": [
+            "d0000001-0001-4000-8000-000000000001"
+        ],
+        "salaryMin": 2500,
+        "salaryMax": 3500,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "onsite",
+        "contractType": "trainee",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher",
+            "education_allowance"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000007-0007-4000-8000-000000000007",
+        "companyId": "b0000003-0003-4000-8000-000000000003",
+        "title": "Estagiário(a) em Dados",
+        "description": "Análise de dados e dashboards.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando Estatística, TI ou afins",
+            "Excel, SQL ou Python"
+        ],
+        "requiredSkills": [
+            "d0000014-0014-4000-8000-000000000014",
+            "d0000003-0003-4000-8000-000000000003"
+        ],
+        "salaryMin": 1600,
+        "salaryMax": 2400,
+        "locationCity": "Rio de Janeiro",
+        "locationState": "RJ",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher",
+            "flexible_hours"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000008-0008-4000-8000-000000000008",
+        "companyId": "b0000003-0003-4000-8000-000000000003",
+        "title": "Analista de Dados Júnior",
+        "description": "Modelagem e análise de dados.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "Experiência com SQL",
+            "Ferramentas de BI"
+        ],
+        "requiredSkills": [
+            "d0000014-0014-4000-8000-000000000014",
+            "d0000052-0052-4000-8000-000000000052"
+        ],
+        "salaryMin": 3500,
+        "salaryMax": 5000,
+        "locationCity": "Rio de Janeiro",
+        "locationState": "RJ",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "health_insurance",
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000009-0009-4000-8000-000000000009",
+        "companyId": "b0000003-0003-4000-8000-000000000003",
+        "title": "Estagiário(a) Data Science",
+        "description": "Suporte em projetos de machine learning.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI ou Exatas",
+            "Python"
+        ],
+        "requiredSkills": [
+            "d0000003-0003-4000-8000-000000000003",
+            "d0000049-0049-4000-8000-000000000049"
+        ],
+        "salaryMin": 1800,
+        "salaryMax": 2800,
+        "locationCity": "Rio de Janeiro",
+        "locationState": "RJ",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "education_allowance"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000010-0010-4000-8000-000000000010",
+        "companyId": "b0000004-0004-4000-8000-000000000004",
+        "title": "Estagiário(a) Desenvolvimento",
+        "description": "Sistemas financeiros e APIs.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI",
+            "Lógica de programação"
+        ],
+        "requiredSkills": [
+            "d0000001-0001-4000-8000-000000000001",
+            "d0000014-0014-4000-8000-000000000014"
+        ],
+        "salaryMin": 2000,
+        "salaryMax": 3000,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher",
+            "health_insurance"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000011-0011-4000-8000-000000000011",
+        "companyId": "b0000004-0004-4000-8000-000000000004",
+        "title": "Dev Backend Júnior",
+        "description": "APIs e integrações em ambiente financeiro.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "Node ou Java",
+            "SQL"
+        ],
+        "requiredSkills": [
+            "d0000016-0016-4000-8000-000000000016",
+            "d0000014-0014-4000-8000-000000000014"
+        ],
+        "salaryMin": 5000,
+        "salaryMax": 7000,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "health_insurance",
+            "meal_voucher",
+            "profit_sharing"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000012-0012-4000-8000-000000000012",
+        "companyId": "b0000004-0004-4000-8000-000000000004",
+        "title": "Trainee Segurança",
+        "description": "Apoio em segurança da informação.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI",
+            "Interesse em segurança"
+        ],
+        "requiredSkills": [
+            "d0000058-0058-4000-8000-000000000058"
+        ],
+        "salaryMin": 2200,
+        "salaryMax": 3200,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "trainee",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher",
+            "education_allowance"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000013-0013-4000-8000-000000000013",
+        "companyId": "b0000005-0005-4000-8000-000000000005",
+        "title": "Estagiário(a) em Saúde Digital",
+        "description": "Desenvolvimento de features para telemedicina.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI",
+            "Boa comunicação"
+        ],
+        "requiredSkills": [
+            "d0000001-0001-4000-8000-000000000001",
+            "d0000080-0080-4000-8000-000000000080"
+        ],
+        "salaryMin": 1500,
+        "salaryMax": 2300,
+        "locationCity": "Belo Horizonte",
+        "locationState": "MG",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "health_insurance",
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000014-0014-4000-8000-000000000014",
+        "companyId": "b0000005-0005-4000-8000-000000000005",
+        "title": "Dev Júnior React",
+        "description": "Interface de aplicações de saúde.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "React",
+            "TypeScript"
+        ],
+        "requiredSkills": [
+            "d0000017-0017-4000-8000-000000000017",
+            "d0000002-0002-4000-8000-000000000002"
+        ],
+        "salaryMin": 4000,
+        "salaryMax": 5500,
+        "locationCity": "Belo Horizonte",
+        "locationState": "MG",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "health_insurance",
+            "flexible_hours"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000015-0015-4000-8000-000000000015",
+        "companyId": "b0000005-0005-4000-8000-000000000005",
+        "title": "Estagiário(a) UX",
+        "description": "Pesquisa e design de interfaces.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando Design ou TI",
+            "Figma"
+        ],
+        "requiredSkills": [
+            "d0000054-0054-4000-8000-000000000054",
+            "d0000055-0055-4000-8000-000000000055"
+        ],
+        "salaryMin": 1300,
+        "salaryMax": 2000,
+        "locationCity": "Belo Horizonte",
+        "locationState": "MG",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000016-0016-4000-8000-000000000016",
+        "companyId": "b0000006-0006-4000-8000-000000000006",
+        "title": "Estagiário(a) EdTech",
+        "description": "Desenvolvimento de plataforma de ensino.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI",
+            "JavaScript ou Python"
+        ],
+        "requiredSkills": [
+            "d0000001-0001-4000-8000-000000000001",
+            "d0000003-0003-4000-8000-000000000003"
+        ],
+        "salaryMin": 1400,
+        "salaryMax": 2100,
+        "locationCity": "Curitiba",
+        "locationState": "PR",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "education_allowance"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000017-0017-4000-8000-000000000017",
+        "companyId": "b0000006-0006-4000-8000-000000000006",
+        "title": "Dev Full Stack Júnior",
+        "description": "Features em React e Node para educação.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "React",
+            "Node ou similar"
+        ],
+        "requiredSkills": [
+            "d0000017-0017-4000-8000-000000000017",
+            "d0000016-0016-4000-8000-000000000016"
+        ],
+        "salaryMin": 3800,
+        "salaryMax": 5200,
+        "locationCity": "Curitiba",
+        "locationState": "PR",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "meal_voucher",
+            "flexible_hours"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000018-0018-4000-8000-000000000018",
+        "companyId": "b0000006-0006-4000-8000-000000000006",
+        "title": "Trainee Produto",
+        "description": "Apoio em produto e backlog.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI ou Administração",
+            "Comunicação"
+        ],
+        "requiredSkills": [
+            "d0000080-0080-4000-8000-000000000080",
+            "d0000091-0091-4000-8000-000000000091"
+        ],
+        "salaryMin": 2000,
+        "salaryMax": 3000,
+        "locationCity": "Curitiba",
+        "locationState": "PR",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "trainee",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "education_allowance"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000019-0019-4000-8000-000000000019",
+        "companyId": "b0000007-0007-4000-8000-000000000007",
+        "title": "Estagiário(a) E-commerce",
+        "description": "Manutenção e evolução de loja online.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI",
+            "HTML, CSS, JS"
+        ],
+        "requiredSkills": [
+            "d0000061-0061-4000-8000-000000000061",
+            "d0000062-0062-4000-8000-000000000062",
+            "d0000001-0001-4000-8000-000000000001"
+        ],
+        "salaryMin": 1500,
+        "salaryMax": 2500,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher",
+            "profit_sharing"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000020-0020-4000-8000-000000000020",
+        "companyId": "b0000007-0007-4000-8000-000000000007",
+        "title": "Dev Backend Júnior",
+        "description": "APIs e microsserviços para marketplace.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "Node ou Java",
+            "Banco de dados"
+        ],
+        "requiredSkills": [
+            "d0000016-0016-4000-8000-000000000016",
+            "d0000029-0029-4000-8000-000000000029"
+        ],
+        "salaryMin": 4500,
+        "salaryMax": 6500,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "health_insurance",
+            "meal_voucher",
+            "remote_work"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000021-0021-4000-8000-000000000021",
+        "companyId": "b0000007-0007-4000-8000-000000000007",
+        "title": "Estagiário(a) Dados",
+        "description": "Análise e relatórios de vendas.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI ou Exatas",
+            "SQL ou Excel"
+        ],
+        "requiredSkills": [
+            "d0000014-0014-4000-8000-000000000014",
+            "d0000051-0051-4000-8000-000000000051"
+        ],
+        "salaryMin": 1600,
+        "salaryMax": 2400,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000022-0022-4000-8000-000000000022",
+        "companyId": "b0000008-0008-4000-8000-000000000008",
+        "title": "Estagiário(a) Agrotech",
+        "description": "Sistemas para o agronegócio.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI ou Agronomia",
+            "Lógica de programação"
+        ],
+        "requiredSkills": [
+            "d0000003-0003-4000-8000-000000000003",
+            "d0000014-0014-4000-8000-000000000014"
+        ],
+        "salaryMin": 1700,
+        "salaryMax": 2600,
+        "locationCity": "Goiânia",
+        "locationState": "GO",
+        "status": "open",
+        "workModel": "onsite",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher",
+            "transport_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000023-0023-4000-8000-000000000023",
+        "companyId": "b0000008-0008-4000-8000-000000000008",
+        "title": "Dev Júnior Backend",
+        "description": "APIs e integrações para campo.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "Python ou Node",
+            "SQL"
+        ],
+        "requiredSkills": [
+            "d0000003-0003-4000-8000-000000000003",
+            "d0000014-0014-4000-8000-000000000014"
+        ],
+        "salaryMin": 4000,
+        "salaryMax": 5500,
+        "locationCity": "Goiânia",
+        "locationState": "GO",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "health_insurance",
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000024-0024-4000-8000-000000000024",
+        "companyId": "b0000008-0008-4000-8000-000000000008",
+        "title": "Trainee IoT",
+        "description": "Sensores e dados em campo.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI ou Engenharia",
+            "Interesse em IoT"
+        ],
+        "requiredSkills": [
+            "d0000079-0079-4000-8000-000000000079",
+            "d0000003-0003-4000-8000-000000000003"
+        ],
+        "salaryMin": 2200,
+        "salaryMax": 3200,
+        "locationCity": "Goiânia",
+        "locationState": "GO",
+        "status": "open",
+        "workModel": "onsite",
+        "contractType": "trainee",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000025-0025-4000-8000-000000000025",
+        "companyId": "b0000009-0009-4000-8000-000000000009",
+        "title": "Estagiário(a) Segurança",
+        "description": "Apoio em análise de vulnerabilidades.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI",
+            "Redes ou segurança"
+        ],
+        "requiredSkills": [
+            "d0000058-0058-4000-8000-000000000058",
+            "d0000057-0057-4000-8000-000000000057"
+        ],
+        "salaryMin": 1800,
+        "salaryMax": 2700,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "education_allowance"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000026-0026-4000-8000-000000000026",
+        "companyId": "b0000009-0009-4000-8000-000000000009",
+        "title": "Analista de Segurança Júnior",
+        "description": "Testes de penetração e hardening.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "Conhecimento em segurança",
+            "Scripting"
+        ],
+        "requiredSkills": [
+            "d0000058-0058-4000-8000-000000000058",
+            "d0000060-0060-4000-8000-000000000060"
+        ],
+        "salaryMin": 5000,
+        "salaryMax": 7000,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "health_insurance",
+            "remote_work"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000027-0027-4000-8000-000000000027",
+        "companyId": "b0000009-0009-4000-8000-000000000009",
+        "title": "Estagiário(a) DevSecOps",
+        "description": "Integração de segurança em CI/CD.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI",
+            "Git, Linux"
+        ],
+        "requiredSkills": [
+            "d0000032-0032-4000-8000-000000000032",
+            "d0000038-0038-4000-8000-000000000038"
+        ],
+        "salaryMin": 1900,
+        "salaryMax": 2800,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000028-0028-4000-8000-000000000028",
+        "companyId": "b0000010-0010-4000-8000-000000000010",
+        "title": "Estagiário(a) Mobile",
+        "description": "Desenvolvimento de apps de mobilidade.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI",
+            "React Native ou Flutter"
+        ],
+        "requiredSkills": [
+            "d0000064-0064-4000-8000-000000000064",
+            "d0000001-0001-4000-8000-000000000001"
+        ],
+        "salaryMin": 1600,
+        "salaryMax": 2500,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher",
+            "flexible_hours"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000029-0029-4000-8000-000000000029",
+        "companyId": "b0000010-0010-4000-8000-000000000010",
+        "title": "Dev Mobile Júnior",
+        "description": "Features em React Native.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "React Native",
+            "APIs REST"
+        ],
+        "requiredSkills": [
+            "d0000064-0064-4000-8000-000000000064",
+            "d0000026-0026-4000-8000-000000000026"
+        ],
+        "salaryMin": 4500,
+        "salaryMax": 6000,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "health_insurance",
+            "remote_work"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000030-0030-4000-8000-000000000030",
+        "companyId": "b0000010-0010-4000-8000-000000000010",
+        "title": "Trainee Produto",
+        "description": "Apoio em discovery e roadmap.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI ou Design",
+            "Comunicação"
+        ],
+        "requiredSkills": [
+            "d0000080-0080-4000-8000-000000000080",
+            "d0000105-0105-4000-8000-000000000105"
+        ],
+        "salaryMin": 2100,
+        "salaryMax": 3100,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "trainee",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "education_allowance"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000031-0031-4000-8000-000000000031",
+        "companyId": "b0000011-0011-4000-8000-000000000011",
+        "title": "Estagiário(a) Automação",
+        "description": "Suporte em projetos de indústria 4.0.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando Engenharia ou TI",
+            "Lógica"
+        ],
+        "requiredSkills": [
+            "d0000003-0003-4000-8000-000000000003",
+            "d0000004-0004-4000-8000-000000000004"
+        ],
+        "salaryMin": 2000,
+        "salaryMax": 3000,
+        "locationCity": "Porto Alegre",
+        "locationState": "RS",
+        "status": "open",
+        "workModel": "onsite",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher",
+            "transport_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000032-0032-4000-8000-000000000032",
+        "companyId": "b0000011-0011-4000-8000-000000000011",
+        "title": "Dev Júnior Java",
+        "description": "Sistemas de controle industrial.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "Java",
+            "Banco de dados"
+        ],
+        "requiredSkills": [
+            "d0000004-0004-4000-8000-000000000004",
+            "d0000023-0023-4000-8000-000000000023"
+        ],
+        "salaryMin": 4500,
+        "salaryMax": 6200,
+        "locationCity": "Porto Alegre",
+        "locationState": "RS",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "health_insurance",
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000033-0033-4000-8000-000000000033",
+        "companyId": "b0000011-0011-4000-8000-000000000011",
+        "title": "Estagiário(a) DevOps",
+        "description": "CI/CD e infraestrutura.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI",
+            "Linux, Git"
+        ],
+        "requiredSkills": [
+            "d0000033-0033-4000-8000-000000000033",
+            "d0000032-0032-4000-8000-000000000032"
+        ],
+        "salaryMin": 1800,
+        "salaryMax": 2700,
+        "locationCity": "Porto Alegre",
+        "locationState": "RS",
+        "status": "open",
+        "workModel": "onsite",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000034-0034-4000-8000-000000000034",
+        "companyId": "b0000012-0012-4000-8000-000000000012",
+        "title": "Estagiário(a) Marketing Digital",
+        "description": "Apoio em campanhas e analytics.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando Marketing ou TI",
+            "Google Analytics, redes sociais"
+        ],
+        "requiredSkills": [
+            "d0000080-0080-4000-8000-000000000080",
+            "d0000089-0089-4000-8000-000000000089"
+        ],
+        "salaryMin": 1500,
+        "salaryMax": 2300,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000035-0035-4000-8000-000000000035",
+        "companyId": "b0000012-0012-4000-8000-000000000012",
+        "title": "Analista de Growth Júnior",
+        "description": "Experimentos e otimização de conversão.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "Dados e métricas",
+            "Ferramentas de análise"
+        ],
+        "requiredSkills": [
+            "d0000051-0051-4000-8000-000000000051",
+            "d0000084-0084-4000-8000-000000000084"
+        ],
+        "salaryMin": 4000,
+        "salaryMax": 5500,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "remote",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "health_insurance",
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000036-0036-4000-8000-000000000036",
+        "companyId": "b0000012-0012-4000-8000-000000000012",
+        "title": "Estagiário(a) Front-end",
+        "description": "Landing pages e interfaces.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI ou Design",
+            "HTML, CSS, JS"
+        ],
+        "requiredSkills": [
+            "d0000017-0017-4000-8000-000000000017",
+            "d0000061-0061-4000-8000-000000000061"
+        ],
+        "salaryMin": 1600,
+        "salaryMax": 2400,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "education_allowance"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000037-0037-4000-8000-000000000037",
+        "companyId": "b0000013-0013-4000-8000-000000000013",
+        "title": "Estagiário(a) Game Dev",
+        "description": "Apoio em jogos 2D/3D.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando TI ou Design de Games",
+            "Unity ou Unreal"
+        ],
+        "requiredSkills": [
+            "d0000001-0001-4000-8000-000000000001",
+            "d0000089-0089-4000-8000-000000000089"
+        ],
+        "salaryMin": 1400,
+        "salaryMax": 2200,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "onsite",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000038-0038-4000-8000-000000000038",
+        "companyId": "b0000013-0013-4000-8000-000000000013",
+        "title": "Dev Júnior Unity",
+        "description": "Desenvolvimento de jogos.",
+        "acceptAutoApply": false,
+        "requirements": [
+            "Unity",
+            "C#"
+        ],
+        "requiredSkills": [
+            "d0000005-0005-4000-8000-000000000005"
+        ],
+        "salaryMin": 3800,
+        "salaryMax": 5200,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "hybrid",
+        "contractType": "clt",
+        "degreeType": "bachelor",
+        "minExperience": 1,
+        "benefits": [
+            "meal_voucher",
+            "flexible_hours"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    },
+    {
+        "id": "e0000039-0039-4000-8000-000000000039",
+        "companyId": "b0000013-0013-4000-8000-000000000013",
+        "title": "Estagiário(a) Arte/UI",
+        "description": "Assets e interfaces para jogos.",
+        "acceptAutoApply": true,
+        "requirements": [
+            "Cursando Design ou TI",
+            "Figma, ilustração"
+        ],
+        "requiredSkills": [
+            "d0000054-0054-4000-8000-000000000054",
+            "d0000056-0056-4000-8000-000000000056"
+        ],
+        "salaryMin": 1300,
+        "salaryMax": 2000,
+        "locationCity": "São Paulo",
+        "locationState": "SP",
+        "status": "open",
+        "workModel": "onsite",
+        "contractType": "internship",
+        "degreeType": "bachelor",
+        "minExperience": 0,
+        "benefits": [
+            "meal_voucher"
+        ],
+        "startDate": "2025-02-01",
+        "endDate": "2025-12-31"
+    }
+]
