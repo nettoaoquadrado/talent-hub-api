@@ -1,16 +1,6 @@
 const { Op } = require('sequelize');
-const Role = require('../../constants/role');
-const {
-  UnauthorizedException,
-  NotFoundException,
-} = require('../../utils/app-exception');
+const { NotFoundException } = require('../../utils/app-exception');
 const { Skill } = require('../../config/database').models;
-
-function ensureCollegeRole(currentUser) {
-  if (currentUser.role !== Role.COLLEGE) {
-    throw new UnauthorizedException();
-  }
-}
 
 module.exports.findById = (id) => Skill.findByPk(id);
 
@@ -37,14 +27,12 @@ module.exports.findMany = async (params) => {
 };
 
 module.exports.create = (params) => {
-  const { currentUser, payload } = params;
-  ensureCollegeRole(currentUser);
+  const { payload } = params;
   return Skill.create(payload);
 };
 
 module.exports.update = async (params) => {
-  const { id, currentUser, payload } = params;
-  ensureCollegeRole(currentUser);
+  const { id, payload } = params;
 
   const skill = await Skill.findByPk(id);
   if (!skill) {
@@ -54,12 +42,8 @@ module.exports.update = async (params) => {
 };
 
 module.exports.deleteById = async (params) => {
-  const { id, currentUser } = params;
-  ensureCollegeRole(currentUser);
-
+  const { id } = params;
   const skill = await Skill.findByPk(id);
-  if (!skill) {
-    throw new NotFoundException('Skill not found');
-  }
+  if (!skill) throw new NotFoundException('Skill não encontrado');
   await skill.destroy();
 };

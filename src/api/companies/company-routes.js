@@ -1,5 +1,7 @@
 const companyController = require('./company-controller');
 const companySchema = require('./company-schema');
+const { requireRole } = require('../../utils/require-role');
+const Role = require('../../constants/role');
 
 module.exports = [
   {
@@ -7,9 +9,10 @@ module.exports = [
     path: '/companies/me',
     handler: companyController.findMe,
     options: {
-      description: 'Buscar empresa do usuário logado (role company)',
+      description: 'Buscar empresa do usuário logado',
       tags: ['api', 'companies'],
       auth: 'jwt',
+      pre: [requireRole([Role.COMPANY])],
     },
   },
   {
@@ -20,6 +23,7 @@ module.exports = [
       description: 'Listar empresas com filtros',
       tags: ['api', 'companies'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT, Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: companySchema.findManySchema,
     },
   },
@@ -31,6 +35,7 @@ module.exports = [
       description: 'Buscar empresa por ID',
       tags: ['api', 'companies'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT, Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: companySchema.findByIdSchema,
     },
   },
@@ -53,6 +58,7 @@ module.exports = [
       description: 'Atualizar perfil de empresa',
       tags: ['api', 'companies'],
       auth: 'jwt',
+      pre: [requireRole([Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: companySchema.updateSchema,
     },
   },
@@ -64,6 +70,7 @@ module.exports = [
       description: 'Excluir perfil de empresa',
       tags: ['api', 'companies'],
       auth: 'jwt',
+      pre: [requireRole([Role.COLLEGE, Role.ADMIN])],
       validate: companySchema.deleteByIdSchema,
     },
   },
@@ -72,16 +79,17 @@ module.exports = [
     path: '/companies/{id}/banner',
     handler: companyController.addBanner,
     options: {
-      description: 'Enviar banner da empresa (form-data, key: banner)',
+      description: 'Enviar banner da empresa',
       tags: ['api', 'companies'],
       auth: 'jwt',
+      pre: [requireRole([Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: companySchema.addBannerSchema,
       payload: {
-        maxBytes: 5 * 1024 * 1024, // 5MB
+        maxBytes: 5 * 1024 * 1024,
         parse: true,
         allow: 'multipart/form-data',
         multipart: true,
-        output: 'data',
+        output: 'stream',
       },
     },
   },
@@ -90,16 +98,17 @@ module.exports = [
     path: '/companies/{id}/logo',
     handler: companyController.addLogo,
     options: {
-      description: 'Enviar logo da empresa (form-data, key: logo)',
+      description: 'Enviar logo da empresa',
       tags: ['api', 'companies'],
       auth: 'jwt',
+      pre: [requireRole([Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: companySchema.addLogoSchema,
       payload: {
-        maxBytes: 3 * 1024 * 1024, // 3MB
+        maxBytes: 3 * 1024 * 1024,
         parse: true,
         allow: 'multipart/form-data',
         multipart: true,
-        output: 'data',
+        output: 'stream',
       },
     },
   },

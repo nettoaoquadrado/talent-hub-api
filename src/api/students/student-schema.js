@@ -116,7 +116,7 @@ module.exports.findManySchema = {
     availableForRelocation: Joi.boolean().optional(),
     availabilityToStart: Joi.boolean().optional(),
     skillIds: Joi.array().items(Joi.string().uuid()).single().optional(),
-    limit: Joi.number().integer().min(1).max(100).optional().default(20),
+    limit: Joi.number().integer().min(1).optional().default(20),
     offset: Joi.number().integer().min(0).optional().default(0),
   }).optional(),
 };

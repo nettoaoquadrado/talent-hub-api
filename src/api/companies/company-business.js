@@ -33,18 +33,11 @@ function toCompanyJson(company) {
 async function ensureCompanyForImageUpload(id, currentUser) {
   if (currentUser.role === Role.COMPANY) {
     const myCompany = await Company.findOne({ where: { userId: currentUser.id } });
-    if (!myCompany || myCompany.id !== id) {
-      throw new UnauthorizedException();
-    }
+    if (!myCompany || myCompany.id !== id) throw new UnauthorizedException();
     return myCompany;
   }
-  if (currentUser.role !== Role.COLLEGE) {
-    throw new UnauthorizedException();
-  }
   const company = await Company.findByPk(id);
-  if (!company) {
-    throw new NotFoundException('Empresa não encontrada');
-  }
+  if (!company) throw new NotFoundException('Empresa não encontrada');
   return company;
 }
 
@@ -151,30 +144,19 @@ module.exports.update = async (params) => {
 
   if (currentUser.role === Role.COMPANY) {
     const myCompany = await Company.findOne({ where: { userId: currentUser.id } });
-    if (!myCompany || myCompany.id !== id) {
-      throw new UnauthorizedException();
-    }
+    if (!myCompany || myCompany.id !== id) throw new UnauthorizedException();
     const updated = await myCompany.update(payload);
     return toCompanyJson(updated);
   }
 
-  if (currentUser.role !== Role.COLLEGE) {
-    throw new UnauthorizedException();
-  }
-
   const company = await Company.findByPk(id);
-  if (!company) {
-    throw new NotFoundException('Empresa não encontrada');
-  }
+  if (!company) throw new NotFoundException('Empresa não encontrada');
   const updated = await company.update(payload);
   return toCompanyJson(updated);
 };
 
 module.exports.deleteById = async (params) => {
-  const { id, currentUser } = params;
-  if (currentUser.role !== Role.COLLEGE) {
-    throw new UnauthorizedException();
-  }
+  const { id } = params;
   await Company.destroy({ where: { id } });
 };
 

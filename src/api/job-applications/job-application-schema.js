@@ -1,6 +1,10 @@
 const Joi = require('joi');
 const JobApplicationStatus = require('../../constants/job-application-status');
 
+const VALID_STATUSES = Object.values(JobApplicationStatus);
+const SORT_BY_VALUES = ['createdAt', 'updatedAt', 'finalScore'];
+const SORT_ORDER_VALUES = ['ASC', 'DESC'];
+
 const findByIdSchema = {
   params: Joi.object({
     id: Joi.string().uuid().required(),
@@ -10,15 +14,13 @@ const findByIdSchema = {
 const findManySchema = {
   query: Joi.object({
     jobId: Joi.string().uuid().allow(null),
-    status: Joi.string()
-      .valid(...Object.values(JobApplicationStatus))
-      .allow(null),
+    status: Joi.string().valid(...VALID_STATUSES).allow(null),
     companyId: Joi.string().uuid().allow(null, ''),
     companyTradeName: Joi.string().allow(null, ''),
-    limit: Joi.number().integer().min(1).max(100).optional(),
+    limit: Joi.number().integer().min(1).optional(),
     offset: Joi.number().integer().min(0).optional(),
-    sortBy: Joi.string().valid('createdAt', 'updatedAt').optional(),
-    sortOrder: Joi.string().valid('ASC', 'DESC').optional(),
+    sortBy: Joi.string().valid(...SORT_BY_VALUES).optional(),
+    sortOrder: Joi.string().valid(...SORT_ORDER_VALUES).optional(),
   }).optional(),
 };
 
@@ -43,8 +45,8 @@ const updateStatusSchema = {
   params: Joi.object({
     id: Joi.string().uuid().required(),
   }).required(),
-    payload: Joi.object({
-    status: Joi.string().valid(...Object.values(JobApplicationStatus)).required(),
+  payload: Joi.object({
+    status: Joi.string().valid(...VALID_STATUSES).required(),
     feedback: Joi.string().min(10).max(1000).allow(null).empty(null),
   }).required(),
 };

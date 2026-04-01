@@ -3,10 +3,12 @@ const JobOpeningStatus = Object.freeze({
   OPEN: 'open',
   // vaga em rascunho
   DRAFT: 'draft',
-  // vaga fechada
+  // vaga fechada por motivo administrativo
   CLOSED: 'closed',
   // vaga pausada
   ON_HOLD: 'on_hold',
+  // vaga finalizada com contratação de estudante
+  HIRED: 'hired',
 });
 
 module.exports = JobOpeningStatus;

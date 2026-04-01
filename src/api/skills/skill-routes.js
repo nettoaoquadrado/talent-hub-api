@@ -1,5 +1,7 @@
 const skillController = require('./skill-controller');
 const skillSchema = require('./skill-schema');
+const { requireRole } = require('../../utils/require-role');
+const Role = require('../../constants/role');
 
 module.exports = [
   {
@@ -32,6 +34,7 @@ module.exports = [
       description: 'Criar nova skill',
       tags: ['api', 'skills'],
       auth: 'jwt',
+      pre: [requireRole([Role.COLLEGE, Role.ADMIN])],
       validate: skillSchema.createSchema,
     },
   },
@@ -43,6 +46,7 @@ module.exports = [
       description: 'Atualizar skill existente',
       tags: ['api', 'skills'],
       auth: 'jwt',
+      pre: [requireRole([Role.COLLEGE, Role.ADMIN])],
       validate: skillSchema.updateSchema,
     },
   },
@@ -54,6 +58,7 @@ module.exports = [
       description: 'Excluir skill existente',
       tags: ['api', 'skills'],
       auth: 'jwt',
+      pre: [requireRole([Role.COLLEGE, Role.ADMIN])],
       validate: skillSchema.deleteByIdSchema,
     },
   },

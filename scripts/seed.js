@@ -1,11 +1,3 @@
-/**
- * Script de seed: lê os JSON em seeds/data e insere os registros no banco via Sequelize.
- * Ordem respeita FKs: users → skills → companies → students → student_* → job_openings → job_applications → job_application_feedbacks → student_views.
- *
- * Uso: npm run seed   ou   node scripts/seed.js
- * Requer: .env-development (ou NODE_ENV) com DB_HOST, DB_USER, DB_PASS, DB_NAME.
- */
-
 const path = require('path');
 const fs = require('fs');
 const { initDatabase, models } = require('../src/config/database');

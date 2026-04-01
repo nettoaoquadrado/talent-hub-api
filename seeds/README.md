@@ -1,36 +1,22 @@
-# Seeds
+# Seeds – Dados iniciais
 
-Dados iniciais para popular o banco de dados em desenvolvimento.
+Os JSON em `data/` são carregados pelo script `npm run seed` na ordem das FKs.
 
-## Estrutura
+## Testar o worker de auto-aplicação
 
-- **`data/`** – Um arquivo JSON por tabela, com array de objetos no formato dos models (camelCase).
-- **`../scripts/seed.js`** – Script que lê esses JSON e insere os registros no banco via Sequelize.
+Após rodar o seed:
 
-## Ordem de inserção
+1. **Vagas elegíveis:** O cron enfileira vagas com `status: "open"` e `acceptAutoApply: true`. No seed, por exemplo:
+   - `e0000001` – Estagiário(a) em Desenvolvimento Web (já tem 2 candidaturas manuais)
+   - `e0000003` – Estagiário(a) QA (nenhuma candidatura)
+   - `e0000004` – Estagiário(a) Desenvolvimento (nenhuma candidatura)
 
-A ordem respeita as chaves estrangeiras:
+2. **Estudantes elegíveis:** Qualquer estudante com `isAutoApplyEnabled: true` que ainda não se candidatou à vaga. Vários em `students.json` têm essa flag (Maria, Ana, Pedro, Lucas, Fernanda, etc.).
 
-1. `users` → `skills` → `companies` → `students`
-2. `student_education`, `student_experience`, `student_skills`, `student_certifications`, `student_languages`
-3. `job_openings` → `job_applications` → `job_application_feedbacks` → `student_views`
+3. **Como testar:**
+   - Subir Redis: `docker compose up -d redis` (ou `docker compose up -d`).
+   - Rodar a API: `npm run dev`.
+   - O cron (padrão a cada 15 min) enfileira as vagas; o worker processa e cria até **15 candidaturas automáticas por vaga**, com `isAutoApply: true`.
+   - Para testar mais rápido: em `.env-development` use `AUTO_APPLY_CRON=*/1 * * * *` (a cada 1 minuto).
 
-## Como rodar
-
-1. Configure o banco (variáveis de ambiente em `.env-development`: `DB_HOST`, `DB_USER`, `DB_PASS`, `DB_NAME`).
-2. Na raiz do projeto:
-
-```bash
-npm run seed
-```
-
-Ou diretamente:
-
-```bash
-node scripts/seed.js
-```
-
-## Observações
-
-- As senhas nos JSON são em texto plano (ex.: `senha123`); o script faz o hash com bcrypt antes de inserir.
-- Os IDs nos JSON são fixos (UUIDs) para que as referências entre tabelas funcionem. Se rodar o seed mais de uma vez no mesmo banco, haverá erro de constraint (registros já existem). Use em banco vazio ou limpe as tabelas antes.
+4. **Candidaturas do seed:** As 3 candidaturas em `job_applications.json` são manuais (`isAutoApply: false`). O limite é de 15 **candidaturas automáticas** por vaga; como nenhuma é auto no seed, cada vaga elegível pode receber até 15 novas candidaturas criadas pelo worker.

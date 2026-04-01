@@ -2,15 +2,27 @@ const companyBusiness = require('./company-business');
 const storageUtil = require('../../utils/storage-util');
 const { BadRequestException } = require('../../utils/app-exception');
 
+const DEFAULT_IMAGE_MIMETYPE = 'image/jpeg';
+
 async function extractFileBuffer(file) {
   if (!file) return null;
   const raw = file.buffer ?? file._data ?? file;
   if (Buffer.isBuffer(raw) && raw.length > 0) return raw;
   if (raw && typeof raw.pipe === 'function') {
-    return storageUtil.streamToBuffer(raw);
+    return await storageUtil.streamToBuffer(raw);
   }
   if (raw && raw instanceof Uint8Array) return Buffer.from(raw);
   return raw;
+}
+
+function getMimetypeFromFile(file) {
+  return (
+    file?.mimetype ??
+    file?.headers?.['content-type'] ??
+    file?.hapi?.headers?.['content-type'] ??
+    file?.hapi?.headers?.['Content-Type'] ??
+    DEFAULT_IMAGE_MIMETYPE
+  );
 }
 
 module.exports.findMe = async (req, h) => {
@@ -82,15 +94,13 @@ module.exports.addBanner = async (req, h) => {
   if (!buffer || !Buffer.isBuffer(buffer) || buffer.length === 0) {
     throw new BadRequestException('Arquivo de banner inválido ou vazio');
   }
-  const mimetype =
-    file?.mimetype ??
-    file?.headers?.['content-type'] ??
-    file?.hapi?.headers?.['content-type'] ??
-    file?.hapi?.headers?.['Content-Type'] ??
-    'image/jpeg';
-
-  const company = await companyBusiness.addBanner({ id, currentUser, banner: buffer, mimetype });
-
+  const mimetype = getMimetypeFromFile(file);
+  const company = await companyBusiness.addBanner({
+    id,
+    currentUser,
+    banner: buffer,
+    mimetype,
+  });
   return h.response(company).code(200);
 };
 
@@ -99,15 +109,15 @@ module.exports.addLogo = async (req, h) => {
   const currentUser = req.auth.credentials;
   const file = req.payload?.logo;
   const buffer = await extractFileBuffer(file);
-
-  const mimetype =
-    file?.mimetype ??
-    file?.headers?.['content-type'] ??
-    file?.hapi?.headers?.['content-type'] ??
-    file?.hapi?.headers?.['Content-Type'] ??
-    'image/jpeg';
-
-  const company = await companyBusiness.addLogo({ id, currentUser, logo: buffer, mimetype });
-
+  if (!buffer || !Buffer.isBuffer(buffer) || buffer.length === 0) {
+    throw new BadRequestException('Arquivo de logo inválido ou vazio');
+  }
+  const mimetype = getMimetypeFromFile(file);
+  const company = await companyBusiness.addLogo({
+    id,
+    currentUser,
+    logo: buffer,
+    mimetype,
+  });
   return h.response(company).code(200);
 };

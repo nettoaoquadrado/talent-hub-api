@@ -1,5 +1,7 @@
 const jobApplicationController = require('./job-application-controller');
 const jobApplicationSchema = require('./job-application-schema');
+const { requireRole } = require('../../utils/require-role');
+const Role = require('../../constants/role');
 
 module.exports = [
   {
@@ -10,6 +12,7 @@ module.exports = [
       description: 'Listar candidaturas com filtros',
       tags: ['api', 'job-applications'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT, Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: jobApplicationSchema.findManySchema,
     },
   },
@@ -21,6 +24,7 @@ module.exports = [
       description: 'Buscar candidatura por ID',
       tags: ['api', 'job-applications'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT, Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: jobApplicationSchema.findByIdSchema,
     },
   },
@@ -32,6 +36,7 @@ module.exports = [
       description: 'Criar nova candidatura',
       tags: ['api', 'job-applications'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT])],
       validate: jobApplicationSchema.createSchema,
     },
   },
@@ -43,6 +48,7 @@ module.exports = [
       description: 'Atualizar carta de apresentação',
       tags: ['api', 'job-applications'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT])],
       validate: jobApplicationSchema.updateCoverLetterSchema,
     },
   },
@@ -51,10 +57,23 @@ module.exports = [
     path: '/job-applications/{id}/status',
     handler: jobApplicationController.updateStatus,
     options: {
-      description: 'Atualizar status',
+      description: 'Atualizar status (empresa/college/admin) ou desistir (estudante)',
       tags: ['api', 'job-applications'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT, Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: jobApplicationSchema.updateStatusSchema,
+    },
+  },
+  {
+    method: 'POST',
+    path: '/job-applications/{id}/score',
+    handler: jobApplicationController.computeScore,
+    options: {
+      description: 'Calcular e salvar score da candidatura',
+      tags: ['api', 'job-applications'],
+      auth: 'jwt',
+      pre: [requireRole([Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
+      validate: jobApplicationSchema.findByIdSchema,
     },
   },
 ];

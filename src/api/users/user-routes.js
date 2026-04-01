@@ -1,5 +1,7 @@
 const userController = require('./user-controller');
 const userSchema = require('./user-schema');
+const { requireRole } = require('../../utils/require-role');
+const Role = require('../../constants/role');
 
 module.exports = [
   {
@@ -10,6 +12,7 @@ module.exports = [
       description: 'Listar usuários com filtros',
       tags: ['api', 'users'],
       auth: 'jwt',
+      pre: [requireRole([Role.COLLEGE, Role.ADMIN])],
       validate: userSchema.findManySchema,
     },
   },
@@ -29,7 +32,7 @@ module.exports = [
     path: '/users/auth',
     handler: userController.auth,
     options: {
-      description: 'Autenticar usuário (Login)',
+      description: 'Autenticar usuário',
       tags: ['api', 'users'],
       auth: false,
       validate: userSchema.authSchema,

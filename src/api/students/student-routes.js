@@ -1,5 +1,7 @@
 const studentController = require('./student-controller');
 const studentSchema = require('./student-schema');
+const { requireRole } = require('../../utils/require-role');
+const Role = require('../../constants/role');
 
 module.exports = [
   {
@@ -10,6 +12,7 @@ module.exports = [
       description: 'Listar estudantes com filtros',
       tags: ['api', 'students'],
       auth: 'jwt',
+      pre: [requireRole([Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: studentSchema.findManySchema,
     },
   },
@@ -21,6 +24,7 @@ module.exports = [
       description: 'Buscar estudante atual',
       tags: ['api', 'students'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT])],
     },
   },
   {
@@ -31,6 +35,7 @@ module.exports = [
       description: 'Buscar estudante por ID',
       tags: ['api', 'students'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT, Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: studentSchema.findByIdSchema,
     },
   },
@@ -53,6 +58,7 @@ module.exports = [
       description: 'Atualizar perfil de estudante',
       tags: ['api', 'students'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT])],
       validate: studentSchema.updateSchema,
     },
   },
@@ -64,6 +70,7 @@ module.exports = [
       description: 'Excluir perfil de estudante',
       tags: ['api', 'students'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT, Role.COLLEGE, Role.ADMIN])],
       validate: studentSchema.deleteByIdSchema,
     },
   },
@@ -75,6 +82,7 @@ module.exports = [
       description: 'Adicionar visualização de estudante',
       tags: ['api', 'students'],
       auth: 'jwt',
+      pre: [requireRole([Role.COMPANY])],
       validate: studentSchema.addViewSchema,
     },
   },
@@ -83,12 +91,13 @@ module.exports = [
     path: '/students/{id}/resume',
     handler: studentController.addResume,
     options: {
-      description: 'Enviar currículo em PDF (form-data, key: resume)',
+      description: 'Enviar currículo em PDF',
       tags: ['api', 'students'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT])],
       validate: studentSchema.addResumeSchema,
       payload: {
-        maxBytes: 5 * 1024 * 1024, // 5MB
+        maxBytes: 5 * 1024 * 1024,
         parse: true,
         allow: 'multipart/form-data',
         multipart: true,
@@ -101,16 +110,17 @@ module.exports = [
     path: '/students/{id}/profile-picture',
     handler: studentController.addProfilePicture,
     options: {
-      description: 'Enviar foto de perfil (form-data, key: profilePicture). Mimetype enviado é usado no upload.',
+      description: 'Enviar foto de perfil',
       tags: ['api', 'students'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT])],
       validate: studentSchema.addProfilePictureSchema,
       payload: {
-        maxBytes: 3 * 1024 * 1024, // 3MB
+        maxBytes: 3 * 1024 * 1024,
         parse: true,
         allow: 'multipart/form-data',
-        multipart: true, 
-        output: 'data',
+        multipart: true,
+        output: 'stream',
       },
     },
   },
@@ -119,9 +129,10 @@ module.exports = [
     path: '/students/me/profile-completation-percentage',
     handler: studentController.getProfileCompletationPercentage,
     options: {
-      description: 'Buscar percentual de completude do perfil de estudante',
+      description: 'Percentual de completude do perfil',
       tags: ['api', 'students'],
       auth: 'jwt',
+      pre: [requireRole([Role.STUDENT])],
     },
-  }
+  },
 ];

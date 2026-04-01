@@ -23,7 +23,6 @@ const { sequelize } = require("../../config/database");
 const hashingUtil = require("../../utils/hashing-util");
 const storageUtil = require("../../utils/storage-util");
 
-const ROLES_CAN_LIST_STUDENTS = [Role.COLLEGE, Role.COMPANY];
 const MAX_CURRENTLY_WORKING_EXPERIENCES = 1;
 const STUDENT_ATTRIBUTES_EXCLUDE = ["updatedAt", "createdAt"];
 const EDUCATION_ATTRIBUTES_EXCLUDE = ["studentId", "id"];
@@ -184,17 +183,9 @@ function ensureStudentOwnedByUser(student, currentUser) {
 function ensureCanAccessStudent(student, currentUser) {
   ensureStudentExists(student);
   const isYourself = student.userId === currentUser.id;
-  if (isYourself && currentUser.role === Role.STUDENT) return;
-
-  if (!isYourself && !ROLES_CAN_LIST_STUDENTS.includes(currentUser.role)) {
-    throw new UnauthorizedException('Você não tem permissão para acessar este estudante');
-  }
-}
-
-function ensureCanListStudents(currentUser) {
-  if (!ROLES_CAN_LIST_STUDENTS.includes(currentUser.role)) {
-    throw new UnauthorizedException('Você não tem permissão para listar estudantes');
-  }
+  const canAccessOthers = [Role.COLLEGE, Role.COMPANY, Role.ADMIN].includes(currentUser.role);
+  if (isYourself || canAccessOthers) return;
+  throw new UnauthorizedException('Você não tem permissão para acessar este estudante');
 }
 
 async function createEducations(studentId, educations, transaction) {
@@ -278,8 +269,6 @@ module.exports.findById = async (params) => {
 };
 
 module.exports.findCurrent = async (currentUser) => {
-  if (currentUser.role !== Role.STUDENT) throw new UnauthorizedException();
-
   const student = await Student.findOne({ 
     where: { userId: currentUser.id }, 
     include: getStudentDetailIncludeOptions(), 
@@ -293,8 +282,6 @@ module.exports.findCurrent = async (currentUser) => {
 
 module.exports.findMany = async (params) => {
   const { currentUser, limit, offset, skillIds, ...filters } = params;
-
-  ensureCanListStudents(currentUser);
 
   const where = buildFindManyWhere(filters);
 
@@ -375,9 +362,7 @@ module.exports.create = async (payload) => {
 module.exports.update = async (params) => {
   const { id, currentUser, payload } = params;
 
-  if (currentUser.role !== Role.STUDENT) throw new UnauthorizedException();
-
-  const student = await Student.findByPk(id).then(s => s.toJSON());
+  const student = await Student.findByPk(id).then((s) => s.toJSON());
   ensureStudentOwnedByUser(student, currentUser); 
 
   const { educations, experiences, skills, certifications, languages, ...profileData } = payload;
@@ -405,11 +390,9 @@ module.exports.update = async (params) => {
 
 module.exports.deleteById = async (params) => {
   const { id, currentUser } = params;
-
-  if (currentUser.role !== Role.STUDENT) throw new UnauthorizedException();
-
   const student = await Student.findByPk(id);
-  ensureStudentOwnedByUser(student, currentUser);
+  ensureStudentExists(student);
+  if (currentUser.role === Role.STUDENT) ensureStudentOwnedByUser(student, currentUser);
 
   await student.destroy();
 };
@@ -417,13 +400,12 @@ module.exports.deleteById = async (params) => {
 module.exports.addView = async (params) => {
   const { studentId, companyId, currentUser } = params;
 
-  if (currentUser.role !== Role.COMPANY) throw new UnauthorizedException();
-
   const student = await Student.findByPk(studentId);
   ensureStudentExists(student);
 
   const company = await Company.findByPk(companyId);
-  if (!company) throw new NotFoundException("Company not found");
+  if (!company) throw new NotFoundException('Empresa não encontrada');
+  if (company.userId !== currentUser.id) throw new UnauthorizedException();
 
   const today = new Date().toISOString().split("T")[0];
 
@@ -455,8 +437,6 @@ module.exports.addView = async (params) => {
 module.exports.addResume = async (params) => {
   const { studentId, currentUser, resume } = params;
 
-  if (currentUser.role !== Role.STUDENT) throw new UnauthorizedException();
-
   const student = await Student.findByPk(studentId);
   ensureStudentOwnedByUser(student, currentUser);
 
@@ -484,8 +464,6 @@ function getExtensionFromMimetype(mimetype) {
 module.exports.addProfilePicture = async (params) => {
   const { studentId, currentUser, profilePicture, mimetype } = params;
 
-  if (currentUser.role !== Role.STUDENT) throw new UnauthorizedException();
-
   const student = await Student.findByPk(studentId);
   ensureStudentOwnedByUser(student, currentUser);
 
@@ -502,14 +480,7 @@ module.exports.addProfilePicture = async (params) => {
   return { profilePictureUrl };
 };
 
-/**
- * Percentual de completude do perfil (0–100).
- * Considera: campos obrigatórios/opcionais preenchidos, desconsidera valores default do model.
- * Arrays (educations, experiences, skills, certifications, languages) contam se tiverem pelo menos 1 item.
- */
 module.exports.getProfileCompletationPercentage = async (currentUser) => {
-  if (currentUser.role !== Role.STUDENT) throw new UnauthorizedException();
-
   const student = await Student.findOne({
     where: { userId: currentUser.id },
     include: [

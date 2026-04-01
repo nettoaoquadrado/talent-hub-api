@@ -10,19 +10,10 @@ module.exports.findById = async (req, h) => {
 };
 
 module.exports.findMany = async (req, h) => {
-  const { role, isActive, email, limit, offset } = req.query;
-  const currentUser = req.auth.credentials;
-
-  const usersResponse = await userBusiness.findMany({
-    currentUser,
-    role,
-    isActive,
-    email,
-    limit,
-    offset,
+  const data = await userBusiness.findMany({
+    ...req.query,
   });
-
-  return h.response(usersResponse).code(200);
+  return h.response(data).code(200);
 };
 
 module.exports.auth = async (req, h) => {

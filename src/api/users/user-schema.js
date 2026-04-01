@@ -9,7 +9,7 @@ module.exports.findByIdSchema = {
 
 module.exports.findManySchema = {
   query: Joi.object({
-    role: Joi.string().valid(...Object.values(Role)),
+    role: Joi.string().valid(...Role.ROLES),
     isActive: Joi.boolean().default(true),
     email: Joi.string().email(),
     limit: Joi.number().integer().min(1).max(100).default(10),

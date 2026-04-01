@@ -46,6 +46,27 @@ module.exports = (sequelize) => {
         type: DataTypes.TEXT,
         allowNull: true,
       },
+      finalScore: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        comment: 'Score 0-100 calculado por regras + IA',
+      },
+      scoreBreakdown: {
+        type: DataTypes.JSONB,
+        allowNull: true,
+        comment: '{ skillsMatch, educationMatch, locationMatch, salaryMatch }',
+      },
+      aiInsights: {
+        type: DataTypes.TEXT,
+        allowNull: true,
+        comment: 'Texto gerado por modelo local (ex: Ollama)',
+      },
+      isAutoApply: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+        defaultValue: false,
+        comment: 'Indica se a candidatura foi criada automaticamente pelo worker de auto-aplicação',
+      },
       createdAt: {
         type: DataTypes.DATE,
         allowNull: false,

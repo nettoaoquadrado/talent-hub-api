@@ -20,7 +20,7 @@ const COMPANY_INCLUDE_WITH_SECTOR = {
   attributes: ['id', 'tradeName', 'corporateName', 'logoUrl', 'sector', 'size'],
 };
 
-const VALID_SORT_FIELDS = ['createdAt', 'updatedAt', 'title', 'salary'];
+const VALID_SORT_FIELDS = ['createdAt', 'updatedAt', 'title', 'salary', 'finishedDate'];
 
 function buildFindManyWhere(params) {
   const {
@@ -75,7 +75,7 @@ function buildFindManyWhere(params) {
   }
 
   if (minAge != null || maxAge != null) {
-    where.minAge = {};  
+    where.minAge = {};
     if (minAge != null) where.minAge[Op.lte] = minAge;
     if (maxAge != null) where.maxAge[Op.gte] = maxAge;
   }
@@ -206,14 +206,8 @@ module.exports.findMany = async (params) => {
 module.exports.create = async (params) => {
   const { payload, currentUser } = params;
 
-  if (![Role.COMPANY, Role.COLLEGE].includes(currentUser.role)) {
-    throw new UnauthorizedException('Apenas empresas podem criar vagas');
-  }
-
   const company = await Company.findByPk(payload.companyId);
-  if (!company) {
-    throw new NotFoundException('Empresa não encontrada');
-  }
+  if (!company) throw new NotFoundException('Empresa não encontrada');
 
   if (currentUser.role === Role.COMPANY && company.userId !== currentUser.id) {
     throw new UnauthorizedException('Você não tem permissão para criar vagas nesta empresa');
@@ -234,13 +228,7 @@ module.exports.update = async (params) => {
   const { id, payload, currentUser } = params;
 
   const jobOpening = await JobOpening.findByPk(id);
-  if (!jobOpening) {
-    throw new NotFoundException('Vaga não encontrada');
-  }
-
-  if (![Role.COLLEGE, Role.COMPANY].includes(currentUser.role)) {
-    throw new UnauthorizedException('Permissão negada');
-  }
+  if (!jobOpening) throw new NotFoundException('Vaga não encontrada');
 
   const company = await Company.findByPk(jobOpening.companyId);
   if (currentUser.role === Role.COMPANY && company.userId !== currentUser.id) {
@@ -270,10 +258,6 @@ module.exports.deleteById = async (params) => {
   const company = await Company.findByPk(jobOpening.companyId);
   if (currentUser.role === Role.COMPANY && company.userId !== currentUser.id) {
     throw new UnauthorizedException('Você não pode excluir vagas de outra empresa');
-  }
-
-  if (currentUser.role !== Role.COMPANY && currentUser.role !== Role.COLLEGE) {
-    throw new UnauthorizedException('Permissão negada');
   }
 
   const applications = jobOpening.jobApplications ?? [];

@@ -1,4 +1,3 @@
-// @ts-nocheck
 const Hapi = require("@hapi/hapi");
 const HapiSwagger = require("hapi-swagger");
 const Vision = require("@hapi/vision");
@@ -59,8 +58,7 @@ module.exports.init = async () => {
 
   server.auth.strategy("jwt", "jwt", {
     key: config.jwt.secret,
-    // eslint-disable-next-line no-unused-vars
-    validate: async (decoded, request, h) => ({ isValid: true }),
+    validate: async (decoded) => ({ isValid: true }),
   });
   server.auth.default("jwt");
 

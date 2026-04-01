@@ -20,13 +20,6 @@ const s3Client = new S3Client(s3ClientConfig);
 
 const BUCKET_NAME = config.s3.bucketName;
 
-/**
- * Faz upload de um arquivo para o S3
- * @param {string} key - Chave/ caminho do arquivo no S3
- * @param {Buffer|string} body - Conteúdo do arquivo (Buffer ou string)
- * @param {string} contentType - Tipo MIME do arquivo (ex: 'image/jpeg', 'application/pdf')
- * @returns {Promise<Object>} - Retorna informações do upload
- */
 async function upload(key, body, contentType = 'application/octet-stream') {
   try {
     const command = new PutObjectCommand({
@@ -70,11 +63,6 @@ function streamToBuffer(stream) {
   })();
 }
 
-/**
- * Busca arquivo no S3 e retorna buffer + contentType (para servir como estático).
- * @param {string} key - Chave/ caminho do arquivo no S3
- * @returns {Promise<{ buffer: Buffer, contentType: string }>}
- */
 async function getFile(key) {
   try {
     const command = new GetObjectCommand({
@@ -97,11 +85,6 @@ async function getFile(key) {
   }
 }
 
-/**
- * Faz download de um arquivo do S3
- * @param {string} key - Chave/ caminho do arquivo no S3
- * @returns {Promise<Buffer>} - Retorna o conteúdo do arquivo como Buffer
- */
 async function download(key) {
   try {
     const { buffer } = await getFile(key);

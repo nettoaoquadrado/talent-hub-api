@@ -20,7 +20,7 @@ const findManySchema = {
       .allow(null),
     locationCity: Joi.string().allow(null, ''),
     locationState: Joi.string().allow(null, ''),
-    limit: Joi.number().integer().min(1).max(100).optional().default(10),
+    limit: Joi.number().integer().min(1).optional().default(10),
     offset: Joi.number().integer().min(0).optional().default(0),
   }).optional(),
 };

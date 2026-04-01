@@ -49,7 +49,7 @@ const findManySchema = {
       .valid('createdAt', 'updatedAt', 'title', 'salary')
       .default('createdAt'),
     sortOrder: Joi.string().valid('ASC', 'DESC').default('DESC'),
-    limit: Joi.number().integer().min(1).max(100).optional(),
+    limit: Joi.number().integer().min(1).optional(),
     offset: Joi.number().integer().min(0).optional(),
   }).optional(),
 };

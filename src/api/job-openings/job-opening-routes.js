@@ -1,5 +1,7 @@
 const jobOpeningController = require('./job-opening-controller');
 const jobOpeningSchema = require('./job-opening-schema');
+const { requireRole } = require('../../utils/require-role');
+const Role = require('../../constants/role');
 
 module.exports = [
   {
@@ -32,6 +34,7 @@ module.exports = [
       description: 'Criar nova vaga de emprego',
       tags: ['api', 'job-openings'],
       auth: 'jwt',
+      pre: [requireRole([Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: jobOpeningSchema.createSchema,
     },
   },
@@ -43,6 +46,7 @@ module.exports = [
       description: 'Atualizar vaga de emprego',
       tags: ['api', 'job-openings'],
       auth: 'jwt',
+      pre: [requireRole([Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: jobOpeningSchema.updateSchema,
     },
   },
@@ -54,7 +58,8 @@ module.exports = [
       description: 'Excluir vaga de emprego',
       tags: ['api', 'job-openings'],
       auth: 'jwt',
+      pre: [requireRole([Role.COMPANY, Role.COLLEGE, Role.ADMIN])],
       validate: jobOpeningSchema.deleteByIdSchema,
     },
-  }
+  },
 ];

@@ -1,49 +1,70 @@
 const jobApplicationBusiness = require('./job-application-business');
 
-module.exports.findById = async (req, h) => {
-  const jobApplication = await jobApplicationBusiness.findById(req.params.id);
+const DEFAULT_LIMIT = 20;
+const DEFAULT_OFFSET = 0;
+const DEFAULT_SORT_BY = 'createdAt';
+const DEFAULT_SORT_ORDER = 'DESC';
 
+module.exports.findById = async (req, h) => {
+  const { id } = req.params;
+  const jobApplication = await jobApplicationBusiness.findById(id);
   return h.response(jobApplication).code(200);
 };
 
 module.exports.findMany = async (req, h) => {
-  const jobApplicationsResponse = await jobApplicationBusiness.findMany({
-    currentUser: req.auth.credentials,
-    ...req.query,
-    limit: Number(req.query.limit) || 20,
-    offset: Number(req.query.offset) || 0,
-    sortBy: req.query.sortBy || 'createdAt',
-    sortOrder: req.query.sortOrder || 'DESC',
+  const { credentials } = req.auth;
+  const { limit, offset, sortBy, sortOrder, ...query } = req.query;
+  const data = await jobApplicationBusiness.findMany({
+    currentUser: credentials,
+    ...query,
+    limit: Number(limit) || DEFAULT_LIMIT,
+    offset: Number(offset) || DEFAULT_OFFSET,
+    sortBy: sortBy || DEFAULT_SORT_BY,
+    sortOrder: sortOrder || DEFAULT_SORT_ORDER,
   });
-
-  return h.response(jobApplicationsResponse).code(200);
+  return h.response(data).code(200);
 };
 
 module.exports.create = async (req, h) => {
-  const currentUser = req.auth.credentials;
+  const { credentials } = req.auth;
   const { payload } = req;
-
-  const jobApplication = await jobApplicationBusiness.create({ currentUser, payload });
-
+  const jobApplication = await jobApplicationBusiness.create({
+    currentUser: credentials,
+    payload,
+  });
   return h.response(jobApplication).code(201);
 };
 
 module.exports.updateCoverLetter = async (req, h) => {
   const { id } = req.params;
-  const currentUser = req.auth.credentials;
+  const { credentials } = req.auth;
   const { payload } = req;
-
-  const jobApplication = await jobApplicationBusiness.updateCoverLetter({ id, currentUser, payload });
-
+  const jobApplication = await jobApplicationBusiness.updateCoverLetter({
+    id,
+    currentUser: credentials,
+    payload,
+  });
   return h.response(jobApplication).code(200);
 };
 
 module.exports.updateStatus = async (req, h) => {
   const { id } = req.params;
-  const currentUser = req.auth.credentials;
+  const { credentials } = req.auth;
   const { payload } = req;
+  const jobApplication = await jobApplicationBusiness.updateStatus({
+    id,
+    currentUser: credentials,
+    payload,
+  });
+  return h.response(jobApplication).code(200);
+};
 
-  const jobApplication = await jobApplicationBusiness.updateStatus({ id, currentUser, payload });
-
+module.exports.computeScore = async (req, h) => {
+  const { id } = req.params;
+  const { credentials } = req.auth;
+  const jobApplication = await jobApplicationBusiness.computeAndSaveScore({
+    id,
+    currentUser: credentials,
+  });
   return h.response(jobApplication).code(200);
 };

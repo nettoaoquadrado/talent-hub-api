@@ -47,6 +47,45 @@ services:
       "
     restart: "no"
 
+  ollama:
+    image: ollama/ollama:latest
+    container_name: talent-hub-ollama
+    restart: unless-stopped
+    environment:
+      OLLAMA_HOST: "0.0.0.0"
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-data:/root/.ollama
+    entrypoint: ["/bin/sh", "-c"]
+    command:
+      - |
+        ollama serve &
+        PID=$!
+        until ollama list 2>/dev/null; do sleep 2; done
+        echo "Ollama API ready, pulling models..."
+        ollama pull nomic-embed-text || true
+        ollama pull llama3.2 || true
+        echo "Pull finished."
+        wait $PID
+
+  redis:
+    image: redis:7-alpine
+    container_name: talent-hub-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
 volumes:
   postgres-data:
   minio-data:
+  ollama-data:
+  redis-data:

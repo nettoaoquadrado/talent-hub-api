@@ -1,5 +1,5 @@
 const Role = require('../../constants/role');
-const { UnauthorizedException } = require('../../utils/app-exception');
+const { UnauthorizedException, NotFoundException } = require('../../utils/app-exception');
 const { User } = require('../../config/database').models;
 const jwtUtil = require('../../utils/jwt-util');
 const hashingUtil = require('../../utils/hashing-util');
@@ -18,19 +18,15 @@ function parseToDto(user) {
 module.exports.findById = async (params) => {
   const { id, currentUser } = params;
   const user = await User.findByPk(id);
+  if (!user) throw new NotFoundException('Usuário não encontrado');
   const isSelf = user.id === currentUser.id;
-  if (!isSelf && currentUser.role !== Role.COLLEGE) {
-    throw new UnauthorizedException();
-  }
+  const canViewOthers = [Role.COLLEGE, Role.ADMIN].includes(currentUser.role);
+  if (!isSelf && !canViewOthers) throw new UnauthorizedException();
   return parseToDto(user);
 };
 
 module.exports.findMany = async (params) => {
-  const { currentUser, role, isActive, email, limit, offset } = params;
-
-  if (currentUser.role !== Role.COLLEGE) {
-    throw new UnauthorizedException();
-  }
+  const { role, isActive, email, limit, offset } = params;
 
   const where = {};
   if (role) where.role = role;
